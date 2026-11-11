@@ -560,37 +560,21 @@
             <p>No finished brief required. Let’s start with a conversation.</p>
           </div>
           <div class="contact-section__form">
-            <form id="inquiry-form" data-contact-email="">
+            <form id="inquiry-form" data-contact-email="" data-coming-soon aria-disabled="true">
               <label class="inquiry-label" for="inquiry-email">Your email</label>
-              <div class="email-pill">
+              <div class="email-pill is-disabled">
                 <input
                   id="inquiry-email"
                   type="email"
                   autocomplete="email"
                   aria-describedby="inquiry-note"
-                  required
+                  disabled
                   maxlength="200"
-                  placeholder="Enter your email"
+                  placeholder="Coming soon"
                   name="email"
-                /><button class="email-pill-submit" type="submit">
-                  Prepare draft<svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M5 12h14m-7-7 7 7-7 7" />
-                  </svg>
-                </button>
+                /><button class="email-pill-submit" type="submit" disabled>Coming soon</button>
               </div>
-              <p class="form-note" id="inquiry-note">
-                Prepare an introduction to copy or save. Nothing is sent from this site.
-              </p>
+              <p class="form-note" id="inquiry-note">Coming soon.</p>
               <p id="form-status" role="status"></p>
             </form>
             <section class="inquiry-output" hidden tabindex="-1">

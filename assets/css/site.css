@@ -1358,6 +1358,17 @@ figure {
 .email-pill-submit svg {
   flex-shrink: 0;
 }
+.email-pill.is-disabled {
+  opacity: 0.6;
+}
+.email-pill input:disabled,
+.email-pill-submit:disabled {
+  cursor: not-allowed;
+}
+.email-pill-submit:disabled:hover {
+  background: transparent;
+  color: var(--text);
+}
 .form-note {
   font-size: 18px;
   line-height: 1.5;

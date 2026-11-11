@@ -787,6 +787,12 @@
     const form = document.getElementById("inquiry-form");
     const output = document.querySelector(".inquiry-output");
     if (!form || !output) return;
+    // Email submission is temporarily disabled; the form shows "Coming soon".
+    // Remove data-coming-soon (and the disabled attributes) in contact/index.html to re-enable.
+    if (form.hasAttribute("data-coming-soon")) {
+      form.addEventListener("submit", (event) => event.preventDefault());
+      return;
+    }
 
     const status = document.getElementById("form-status");
     const note = document.getElementById("inquiry-note");
