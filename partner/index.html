@@ -73,21 +73,230 @@
           {
             "@type": "WebSite",
             "@id": "https://jessiesunday.com/#website",
-            "url": "https://jessiesunday.com",
+            "url": "https://jessiesunday.com/",
             "name": "Jessie Sunday",
             "description": "Jessie Sunday designs gatherings, retreats, and community programs that turn company culture into something people can feel. San Francisco and beyond.",
             "inLanguage": "en-US",
-            "publisher": { "@id": "https://jessiesunday.com/#jessie" }
+            "publisher": {
+              "@id": "https://jessiesunday.com/#jessie"
+            },
+            "about": {
+              "@id": "https://jessiesunday.com/#business"
+            }
           },
           {
             "@type": "Person",
             "@id": "https://jessiesunday.com/#jessie",
             "name": "Jessie Sunday",
-            "url": "https://jessiesunday.com",
+            "url": "https://jessiesunday.com/",
+            "image": "https://jessiesunday.com/images/jessie-sunday-portrait.jpg",
             "jobTitle": "Fractional Embedded Strategist and Community Architect",
-            "description": "Meet Jessie Sunday: a San Francisco community and experience strategist bringing strategy, production, and ten years of face-to-face connection to your team.",
-            "homeLocation": { "@type": "Place", "name": "San Francisco" },
-            "knowsAbout": ["Community strategy", "Experience design", "Brand experiences", "Team retreats"]
+            "description": "Jessie Sunday is a San Francisco community and experience strategist with ten years of bringing people together, from Club Med stages and Birthright Israel trips to LivingSocial, six years at Jack Morton Worldwide on Fortune 500 programs, queer community galas, and productions of her own.",
+            "worksFor": {
+              "@id": "https://jessiesunday.com/#business"
+            },
+            "homeLocation": {
+              "@type": "City",
+              "name": "San Francisco",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "San Francisco",
+                "addressRegion": "CA",
+                "addressCountry": "US"
+              }
+            },
+            "knowsAbout": [
+              "Community strategy",
+              "Culture strategy",
+              "Experience design",
+              "Experiential marketing",
+              "Brand experiences",
+              "Brand activations",
+              "Event production",
+              "Team retreats",
+              "Wellness retreats",
+              "Corporate offsites",
+              "Third spaces",
+              "Ambassador programs"
+            ]
+          },
+          {
+            "@type": "ProfessionalService",
+            "@id": "https://jessiesunday.com/#business",
+            "name": "Jessie Sunday",
+            "url": "https://jessiesunday.com/",
+            "logo": "https://jessiesunday.com/brand/jessie-sunday-logo-wine.png",
+            "image": "https://jessiesunday.com/images/og/home.png",
+            "description": "Community and experience strategy, experience design, and production for values-led brands, agencies, and hospitality and community brands. Fractional and project-based. Based in San Francisco.",
+            "slogan": "Good people. Extraordinary possibilities.",
+            "founder": {
+              "@id": "https://jessiesunday.com/#jessie"
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "San Francisco",
+              "addressRegion": "CA",
+              "addressCountry": "US"
+            },
+            "areaServed": [
+              {
+                "@type": "City",
+                "name": "San Francisco"
+              },
+              {
+                "@type": "AdministrativeArea",
+                "name": "San Francisco Bay Area"
+              },
+              {
+                "@type": "AdministrativeArea",
+                "name": "West Coast of the United States"
+              }
+            ],
+            "knowsAbout": [
+              "Community strategy",
+              "Culture strategy",
+              "Experience design",
+              "Experiential marketing",
+              "Brand experiences",
+              "Brand activations",
+              "Event production",
+              "Team retreats",
+              "Wellness retreats",
+              "Corporate offsites",
+              "Third spaces",
+              "Ambassador programs"
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Ways to work together",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Fractional & retainer partnership",
+                    "description": "Jessie joins your team as a fractional Head of Community and Experience: embedded strategic leadership, community and experience direction, and ongoing team and partner alignment.",
+                    "url": "https://jessiesunday.com/partner/"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Project-based experience",
+                    "description": "One retreat, launch, or gathering taken from first sketch to a full room: retreats and team gatherings, brand activations and summits, community and third-space experiences.",
+                    "url": "https://jessiesunday.com/partner/"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://jessiesunday.com/partner/#webpage",
+            "url": "https://jessiesunday.com/partner/",
+            "name": "Partner with Me | Fractional & Project Strategy | Jessie Sunday",
+            "description": "Work with Jessie Sunday as a fractional Head of Community and Experience, or a strategic partner for a retreat, brand launch, or community gathering.",
+            "inLanguage": "en-US",
+            "isPartOf": {
+              "@id": "https://jessiesunday.com/#website"
+            },
+            "about": {
+              "@id": "https://jessiesunday.com/#business"
+            },
+            "primaryImageOfPage": {
+              "@type": "ImageObject",
+              "url": "https://jessiesunday.com/images/og/partner.png",
+              "width": 1200,
+              "height": 630
+            },
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What does Jessie Sunday do?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "I’m a San Francisco community and experience strategist. I help companies whose culture is their edge turn that culture into something people can feel: retreats, launches, brand activations, and community programs, from the first strategy conversation through production."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is a fractional Head of Community and Experience?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "It’s an embedded, ongoing role without a full-time hire. I join your team, hold the long-term direction, build a rhythm of gatherings people actually look forward to, and keep everyone pulling toward the same culture."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What’s the difference between fractional and project-based work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Fractional and retainer work builds community over time, with me as a strategic partner inside your team. Project-based work brings one retreat, launch, or gathering from first sketch to a full room: we shape the ambition, agree the scope, and I bring the crew."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What kinds of experiences do you create?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Retreats and team gatherings, brand activations and summits, and community and third-space experiences. Past work includes pop-up haircut experiences in Dolores Park, a sold-out retreat for 60 women, and one shared culture for 500 ambassadors across 15 markets."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Who do you work with?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Values-led brands and founders, experiential and event agencies, visionary experience-led companies, and lifestyle, hospitality, and community brands."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you handle production, or only strategy?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Both. I own the why, then bring the crew for the how: producers, artists, technical teams, and local collaborators, pulled in around one clear brief. I stay in the room from the planning table to the last dance."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Where do you work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "I’m rooted in San Francisco and work across the Bay Area, the West Coast, and beyond. I build with local culture and local partners, so an experience feels earned, never imported."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do I need a finished brief to get in touch?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Bring the beginning of an idea and the people you want in the room, and we’ll work out the shape together."
+                }
+              }
+            ],
+            "breadcrumb": {
+              "@id": "https://jessiesunday.com/partner/#breadcrumb"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://jessiesunday.com/partner/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://jessiesunday.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Partner with me",
+                "item": "https://jessiesunday.com/partner/"
+              }
+            ]
           }
         ]
       }
@@ -634,6 +843,42 @@
             </style></noscript
           >
         </div>
+        <section class="partner-faq" aria-labelledby="faq-title">
+          <p class="partner-adventure__kicker">Good questions</p>
+          <h2 id="faq-title">Before we talk.</h2>
+          <details class="partner-faq__item">
+            <summary>What does Jessie Sunday do?</summary>
+            <p>I’m a San Francisco community and experience strategist. I help companies whose culture is their edge turn that culture into something people can feel: retreats, launches, brand activations, and community programs, from the first strategy conversation through production.</p>
+          </details>
+          <details class="partner-faq__item">
+            <summary>What is a fractional Head of Community and Experience?</summary>
+            <p>It’s an embedded, ongoing role without a full-time hire. I join your team, hold the long-term direction, build a rhythm of gatherings people actually look forward to, and keep everyone pulling toward the same culture.</p>
+          </details>
+          <details class="partner-faq__item">
+            <summary>What’s the difference between fractional and project-based work?</summary>
+            <p>Fractional and retainer work builds community over time, with me as a strategic partner inside your team. Project-based work brings one retreat, launch, or gathering from first sketch to a full room: we shape the ambition, agree the scope, and I bring the crew.</p>
+          </details>
+          <details class="partner-faq__item">
+            <summary>What kinds of experiences do you create?</summary>
+            <p>Retreats and team gatherings, brand activations and summits, and community and third-space experiences. Past work includes pop-up haircut experiences in Dolores Park, a sold-out retreat for 60 women, and one shared culture for 500 ambassadors across 15 markets.</p>
+          </details>
+          <details class="partner-faq__item">
+            <summary>Who do you work with?</summary>
+            <p>Values-led brands and founders, experiential and event agencies, visionary experience-led companies, and lifestyle, hospitality, and community brands.</p>
+          </details>
+          <details class="partner-faq__item">
+            <summary>Do you handle production, or only strategy?</summary>
+            <p>Both. I own the why, then bring the crew for the how: producers, artists, technical teams, and local collaborators, pulled in around one clear brief. I stay in the room from the planning table to the last dance.</p>
+          </details>
+          <details class="partner-faq__item">
+            <summary>Where do you work?</summary>
+            <p>I’m rooted in San Francisco and work across the Bay Area, the West Coast, and beyond. I build with local culture and local partners, so an experience feels earned, never imported.</p>
+          </details>
+          <details class="partner-faq__item">
+            <summary>Do I need a finished brief to get in touch?</summary>
+            <p>No. Bring the beginning of an idea and the people you want in the room, and we’ll work out the shape together.</p>
+          </details>
+        </section>
         <section class="partner-adventure__unsure" aria-labelledby="unsure-title">
           <svg
             class="partner-adventure__compass"

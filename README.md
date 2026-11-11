@@ -144,6 +144,25 @@ different domain, replace that address everywhere it appears.
 The 1200×630 sharing cards are in `images/og/`. They are ordinary image files;
 re-export one if its page's hero or headline changes.
 
+**Structured data.** Each page's `<head>` ends with a JSON-LD block describing
+Jessie (`Person`), the practice (`ProfessionalService`, with its services and
+the two ways to work together), the page itself, and its breadcrumb. Case
+studies add a `CreativeWork` naming the client and its links; Selected work
+lists all six; Partner carries the FAQ. When you change a page's title,
+description, or the FAQ on the Partner page, update the matching text in its
+JSON-LD so the two agree. Check changes with Google's Rich Results Test.
+
+**Answer engines.** `llms.txt` is a plain-language summary of the site with
+links, for AI assistants and answer engines. Keep its facts and case study
+lines in step with the pages. `robots.txt` names the main AI crawlers to make
+clear they are welcome; remove any you would rather keep out.
+
+**Company names.** Logos drawn with `mask-image` carry their company name in a
+`.sr-only` span, so screen readers and crawlers read it as text.
+
+**Sitemap.** Update a page's `<lastmod>` in `sitemap.xml` when its content
+changes.
+
 ## Content notes
 
 The hero backgrounds and the drag-show image are generated concepts, not

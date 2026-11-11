@@ -3897,6 +3897,60 @@ body,
   white-space: nowrap;
   font-size: 18px;
 }
+/* Common questions, written as plain answers so search and answer engines can quote them. */
+.partner-faq {
+  max-width: 1100px;
+  margin: 80px auto 0;
+}
+.partner-faq h2 {
+  font-size: clamp(34px, 3.4vw, 48px);
+  margin: 12px 0 24px;
+}
+.partner-faq__item {
+  border-top: 1px solid var(--line);
+}
+.partner-faq__item:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.partner-faq__item summary {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 0;
+  font-size: 19px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+.partner-faq__item summary::-webkit-details-marker {
+  display: none;
+}
+.partner-faq__item summary::after {
+  content: "+";
+  flex: none;
+  font-weight: 400;
+  transition: transform 0.2s ease;
+}
+.partner-faq__item[open] summary::after {
+  transform: rotate(45deg);
+}
+.partner-faq__item summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.partner-faq__item p {
+  max-width: 760px;
+  margin: 0 0 24px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text-soft);
+  text-wrap: pretty;
+}
+@media (prefers-reduced-motion: reduce) {
+  .partner-faq__item summary::after {
+    transition: none;
+  }
+}
 @media (max-width: 900px) {
   .partner-adventure__page {
     padding-top: 36px;
