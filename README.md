@@ -17,9 +17,11 @@ python3 -m http.server 8000
 
 Then open http://localhost:8000.
 
-Opening the `.html` files directly from disk is not enough: links point at
-folders (`about/`), and the illustrations pull figures from separate SVG files,
-which browsers only allow over `http`.
+You can also open `index.html` straight from disk: every link names its file
+(`about/index.html`), so navigation works without a server. The illustrated
+figures (people, the VW bus) won't appear that way, though. They are pulled from
+separate SVG files in `illustrations/`, which browsers only load over `http`, so
+use the server above to see the pages as visitors will.
 
 ## Publishing
 
@@ -27,8 +29,11 @@ Upload or deploy this folder as-is to any static host (GitHub Pages, Netlify,
 Vercel, Cloudflare Pages, S3, a plain web server). There is no build command
 and the publish directory is the repository root.
 
-- Pages are folders with an `index.html`, so URLs look like `/about/` and
-  `/work/jack-morton/`.
+- Pages are folders with an `index.html`. Links name the file
+  (`about/index.html`) so they also work from disk; on the live site
+  `/about/` and `/about/index.html` serve the same page, and the canonical
+  URLs and sitemap use the shorter `/about/` form. Write new links the same
+  way.
 - Every page uses relative paths, so the site also works from a subfolder
   (for example `example.github.io/jessiesunday-website/`).
 - `404.html` is the exception. A host can serve it for any missing URL, so it
@@ -126,8 +131,8 @@ Jessie's approved address to the form in `contact/index.html`:
 <form id="inquiry-form" data-contact-email="hello@example.com">
 ```
 
-Links from the Partner page arrive as `contact/?type=fractional` or
-`contact/?type=project`, and that choice is carried into the introduction.
+Links from the Partner page arrive as `contact/index.html?type=fractional` or
+`contact/index.html?type=project`, and that choice is carried into the introduction.
 
 ## Search and social sharing
 
