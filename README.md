@@ -18,10 +18,12 @@ python3 -m http.server 8000
 Then open http://localhost:8000.
 
 You can also open `index.html` straight from disk: every link names its file
-(`about/index.html`), so navigation works without a server. The illustrated
-figures (people, the VW bus) won't appear that way, though. They are pulled from
-separate SVG files in `illustrations/`, which browsers only load over `http`, so
-use the server above to see the pages as visitors will.
+(`about/index.html`), so navigation works without a server. Illustrated figures
+(people and the VW bus) are embedded in the HTML and render from disk too.
+The original artwork lives in `illustrations/`. After changing those SVG files
+or adding an external illustration `<use>`, run
+`python3 scripts/inline-illustrations.py` to refresh the embedded symbols.
+This is an editing utility; deployment still requires no build step.
 
 ## Publishing
 
