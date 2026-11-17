@@ -1015,11 +1015,6 @@ figure {
   margin-bottom: 8px;
   color: var(--muted);
 }
-.card-result {
-  font-size: 18px;
-  display: block;
-  color: var(--accent-text);
-}
 .work-card-main {
   display: block;
 }
