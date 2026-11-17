@@ -22,17 +22,13 @@ Use case: lighting-weather / editorial photo color grade. Input image 1 is the E
 
 ## livingsocial-adventures.webp
 
-Source: `/images/work/livingsocial-adventures.webp`.
-Output: `/images/work/cinematic/livingsocial-adventures.webp`.
-
-Use case: lighting-weather / editorial photo color grade. Input image 1 is the EDIT TARGET, an existing selected-work photograph. Input image 2 is a color, lighting and cinematography REFERENCE ONLY. Professionally color-grade and gently relight image 1 to feel as cozy, natural and polished as image 2: warm honey and amber light, soft creamy highlights, rich but open warm shadows, subdued olive foliage, warm natural skin tones, tactile materials, smooth filmic highlight rolloff, restrained saturation and very subtle fine film grain. Carefully enhance exposure, clarity and tonal separation without a crunchy HDR effect. Keep the photograph believable and appropriate to its existing indoor/outdoor setting. Preserve the exact composition, crop, perspective, all people and their facial likenesses, expressions, poses, clothing, architecture, props, objects and visible branding/signage. Do not add, remove, replace or move people or objects, do not add scenery from image 2, do not turn this into the retreat scene. Do not add typography, borders or watermarks. The result must remain a real photograph of the same subject, not an illustration or new composition. Match image 1's aspect ratio. Preserve the exact aerial coastal resort view and arrangement of pools, buildings, paths, trees, beach and ocean. Give the daylight a gentle late-afternoon warmth, sun-kissed cream buildings, softly golden foliage highlights, muted olive palms and sophisticated softened turquoise water. Keep water recognizably blue, not brown or orange. Natural inviting travel cinematography without inventing a sunset sky.
+Source: photo supplied by the site owner (2026-11-17), used as-is without a color grade. Only 349px wide, so there are no 640w and larger variants.
+Output: `/images/work/cinematic/livingsocial-adventures.webp` and its width variants.
 
 ## jack-morton.webp
 
-Source: `/images/work/jack-morton.webp`.
-Output: `/images/work/cinematic/jack-morton.webp`.
-
-Use case: lighting-weather / editorial photo color grade. Input image 1 is the EDIT TARGET, an existing selected-work photograph. Input image 2 is a color, lighting and cinematography REFERENCE ONLY. Professionally color-grade and gently relight image 1 to feel as cozy, natural and polished as image 2: warm honey and amber light, soft creamy highlights, rich but open warm shadows, subdued olive foliage, warm natural skin tones, tactile materials, smooth filmic highlight rolloff, restrained saturation and very subtle fine film grain. Carefully enhance exposure, clarity and tonal separation without a crunchy HDR effect. Keep the photograph believable and appropriate to its existing indoor/outdoor setting. Preserve the exact composition, crop, perspective, all people and their facial likenesses, expressions, poses, clothing, architecture, props, objects and visible branding/signage. Do not add, remove, replace or move people or objects, do not add scenery from image 2, do not turn this into the retreat scene. Do not add typography, borders or watermarks. The result must remain a real photograph of the same subject, not an illustration or new composition. Match image 1's aspect ratio. Preserve the exact Chevrolet Riverfront concert stage, original signage, trusses, river, bridge, crowd and performers. Gently warm the existing daylight toward soft late-afternoon sun with golden highlights, creamy clouds, restrained blue sky and greens, warm natural skin and filmic contrast. Keep the energetic daytime event and accurate signage intact; do not turn it into a nighttime show or change the stage and audience.
+Source: photo supplied by the site owner (2026-11-17), used as-is without a color grade.
+Output: `/images/work/cinematic/jack-morton.webp` and its width variants.
 
 ## jewish-federation-la.webp
 
