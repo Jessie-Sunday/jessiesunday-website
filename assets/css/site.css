@@ -1131,25 +1131,6 @@ figure {
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
-.project-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0 18px;
-  margin-top: 14px;
-}
-.project-links a {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  min-height: 44px;
-  font-size: 15px;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-color: var(--line);
-}
-.project-links a:hover {
-  text-decoration-color: currentColor;
-}
 .place {
   position: relative;
   height: 620px;
@@ -1918,9 +1899,6 @@ figure {
   margin: 4px 0 0;
   font-size: 18px;
   font-weight: 500;
-}
-.case-aside .project-links {
-  margin-top: 18px;
 }
 .case-index {
   list-style: none;
