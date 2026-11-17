@@ -758,16 +758,19 @@
   /* ------------------------------------------------------------------ *
    * 9. Contact page: inquiry form
    *
-   * The form never sends anything from the website. It prepares a short
-   * introduction the visitor can copy or download.
+   * Submissions are sent through FormSubmit (https://formsubmit.co), a free
+   * form-to-email service, to the address in the form's data-contact-email
+   * attribute in contact/index.html:
    *
-   * To have it open a prefilled email draft instead, put Jessie's address in
-   * the form's data-contact-email attribute in contact/index.html:
+   *   <form id="inquiry-form" data-contact-email="jessie@jessiesunday.com">
    *
-   *   <form id="inquiry-form" data-contact-email="hello@example.com">
+   * The first submission to a new address makes FormSubmit email that
+   * address an activation link; nothing is delivered until it is clicked.
+   *
+   * If sending fails, the visitor sees the inquiry to copy or download.
    *
    * Links from the Partner page arrive with ?type=fractional or
-   * ?type=project, which is carried into the introduction.
+   * ?type=project, which is carried into the inquiry.
    * ------------------------------------------------------------------ */
   const PARTNERSHIP_BY_QUERY = {
     fractional: "Fractional / retainer",
@@ -775,27 +778,25 @@
   };
   const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  function buildMailtoUrl(recipient, name, summary) {
-    const subject = `Let’s create something together — ${name.trim()}`;
-    return (
-      `mailto:${encodeURIComponent(recipient)}` +
-      `?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(summary)}`
-    );
+  async function sendInquiry(recipient, fields) {
+    const response = await fetch(`https://formsubmit.co/ajax/${recipient}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(fields),
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok || String(result.success) !== "true") {
+      throw new Error(result.message || `FormSubmit responded with ${response.status}`);
+    }
   }
 
   function initInquiryForm() {
     const form = document.getElementById("inquiry-form");
     const output = document.querySelector(".inquiry-output");
     if (!form || !output) return;
-    // Email submission is temporarily disabled; the form shows "Coming soon".
-    // Remove data-coming-soon (and the disabled attributes) in contact/index.html to re-enable.
-    if (form.hasAttribute("data-coming-soon")) {
-      form.addEventListener("submit", (event) => event.preventDefault());
-      return;
-    }
 
     const status = document.getElementById("form-status");
-    const note = document.getElementById("inquiry-note");
+    const submitButton = form.querySelector('button[type="submit"]');
     const summaryBox = output.querySelector("pre");
     const [copyButton, downloadButton] = output.querySelectorAll(".form-actions button");
     const setStatus = (message) => {
@@ -805,21 +806,7 @@
     const configured = (form.dataset.contactEmail || "").trim();
     const recipient = EMAIL_PATTERN.test(configured) ? configured : null;
     let summary = "";
-
-    if (recipient) {
-      if (note) {
-        const link = document.createElement("a");
-        link.href = `mailto:${recipient}`;
-        link.textContent = recipient;
-        note.textContent = "Opens a draft in your email app. You review and send it. Or email ";
-        note.append(link);
-      }
-      const explanation = output.querySelector("p");
-      if (explanation) {
-        explanation.textContent =
-          "An email draft has been requested in your email app. Review and send it there, or copy this inquiry into a new email.";
-      }
-    }
+    let sending = false;
 
     const type = new URLSearchParams(window.location.search).get("type");
     const preselect = type && Object.hasOwn(PARTNERSHIP_BY_QUERY, type) ? PARTNERSHIP_BY_QUERY[type] : null;
@@ -830,10 +817,27 @@
       form.prepend(context);
     }
 
-    form.addEventListener("submit", (event) => {
+    const showFallback = () => {
+      if (summaryBox) summaryBox.textContent = summary;
+      if (copyButton) copyButton.textContent = "Copy inquiry";
+      output.hidden = false;
+      output.focus({ preventScroll: true });
+      output.scrollIntoView({
+        behavior: reducedMotion.matches ? "instant" : "smooth",
+        block: "center",
+      });
+    };
+
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      if (!form.reportValidity()) return;
-      const email = String(new FormData(form).get("email") || "").trim();
+      if (sending || !form.reportValidity()) return;
+      const data = new FormData(form);
+      // Bots fill the hidden _honey field; quietly pretend it worked.
+      if (String(data.get("_honey") || "")) {
+        setStatus("Thank you! Jessie will be in touch soon.");
+        return;
+      }
+      const email = String(data.get("email") || "").trim();
       summary = [
         "Hi Jessie,",
         "",
@@ -845,17 +849,37 @@
         "Looking forward to connecting!",
       ].join("\n");
 
-      if (summaryBox) summaryBox.textContent = summary;
-      if (copyButton) copyButton.textContent = "Copy inquiry";
-      setStatus("Inquiry prepared. Nothing has been sent from the website.");
-      output.hidden = false;
-      output.focus({ preventScroll: true });
-      output.scrollIntoView({
-        behavior: reducedMotion.matches ? "instant" : "smooth",
-        block: "center",
-      });
+      output.hidden = true;
+      if (!recipient) {
+        setStatus("Sending isn’t set up yet. Copy or download your inquiry below.");
+        showFallback();
+        return;
+      }
 
-      if (recipient) window.location.href = buildMailtoUrl(recipient, email, summary);
+      sending = true;
+      if (submitButton) submitButton.disabled = true;
+      form.setAttribute("aria-busy", "true");
+      setStatus("Sending…");
+      try {
+        await sendInquiry(recipient, {
+          email,
+          ...(preselect ? { partnership: preselect } : {}),
+          message: summary,
+          _replyto: email,
+          _subject: `New inquiry from jessiesunday.com — ${email}`,
+          _template: "box",
+          _captcha: "false",
+        });
+        form.reset();
+        setStatus("Thank you! Your note is on its way. Jessie will be in touch soon.");
+      } catch {
+        setStatus("Something went wrong sending your inquiry.");
+        showFallback();
+      } finally {
+        sending = false;
+        if (submitButton) submitButton.disabled = false;
+        form.removeAttribute("aria-busy");
+      }
     });
 
     if (copyButton) {
@@ -889,7 +913,7 @@
         anchor.click();
         anchor.remove();
         window.setTimeout(() => URL.revokeObjectURL(url), 1000);
-        setStatus("Your inquiry download is ready. Nothing has been sent.");
+        setStatus("Your inquiry download is ready.");
       });
     }
   }
