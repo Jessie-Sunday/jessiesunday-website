@@ -758,14 +758,14 @@
   /* ------------------------------------------------------------------ *
    * 9. Contact page: inquiry form
    *
-   * Submissions are sent through FormSubmit (https://formsubmit.co), a free
-   * form-to-email service, to the address in the form's data-contact-email
-   * attribute in contact/index.html:
+   * Submissions are sent through Web3Forms (https://web3forms.com), a free
+   * form-to-email service. The form's data-access-key attribute in
+   * contact/index.html holds the Web3Forms access key; Web3Forms delivers
+   * to the inbox that key was created for:
    *
-   *   <form id="inquiry-form" data-contact-email="jessie@jessiesunday.com">
+   *   <form id="inquiry-form" data-access-key="xxxxxxxx-xxxx-...">
    *
-   * The first submission to a new address makes FormSubmit email that
-   * address an activation link; nothing is delivered until it is clicked.
+   * The access key is meant to be public, so it is safe in page source.
    *
    * If sending fails, the visitor sees the inquiry to copy or download.
    *
@@ -776,17 +776,17 @@
     fractional: "Fractional / retainer",
     project: "Project-based",
   };
-  const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const ACCESS_KEY_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
-  async function sendInquiry(recipient, fields) {
-    const response = await fetch(`https://formsubmit.co/ajax/${recipient}`, {
+  async function sendInquiry(accessKey, fields) {
+    const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify(fields),
+      body: JSON.stringify({ access_key: accessKey, ...fields }),
     });
     const result = await response.json().catch(() => ({}));
-    if (!response.ok || String(result.success) !== "true") {
-      throw new Error(result.message || `FormSubmit responded with ${response.status}`);
+    if (!response.ok || result.success !== true) {
+      throw new Error(result.message || `Web3Forms responded with ${response.status}`);
     }
   }
 
@@ -803,8 +803,8 @@
       if (status) status.textContent = message;
     };
 
-    const configured = (form.dataset.contactEmail || "").trim();
-    const recipient = EMAIL_PATTERN.test(configured) ? configured : null;
+    const configured = (form.dataset.accessKey || "").trim();
+    const accessKey = ACCESS_KEY_PATTERN.test(configured) ? configured : null;
     let summary = "";
     let sending = false;
 
@@ -832,8 +832,8 @@
       event.preventDefault();
       if (sending || !form.reportValidity()) return;
       const data = new FormData(form);
-      // Bots fill the hidden _honey field; quietly pretend it worked.
-      if (String(data.get("_honey") || "")) {
+      // Bots fill the hidden botcheck field; quietly pretend it worked.
+      if (String(data.get("botcheck") || "")) {
         setStatus("Thank you! Jessie will be in touch soon.");
         return;
       }
@@ -850,7 +850,7 @@
       ].join("\n");
 
       output.hidden = true;
-      if (!recipient) {
+      if (!accessKey) {
         setStatus("Sending isn’t set up yet. Copy or download your inquiry below.");
         showFallback();
         return;
@@ -861,14 +861,13 @@
       form.setAttribute("aria-busy", "true");
       setStatus("Sending…");
       try {
-        await sendInquiry(recipient, {
+        await sendInquiry(accessKey, {
+          subject: `New inquiry from jessiesunday.com — ${email}`,
+          from_name: "jessiesunday.com",
           email,
+          replyto: email,
           ...(preselect ? { partnership: preselect } : {}),
           message: summary,
-          _replyto: email,
-          _subject: `New inquiry from jessiesunday.com — ${email}`,
-          _template: "box",
-          _captcha: "false",
         });
         form.reset();
         setStatus("Thank you! Your note is on its way. Jessie will be in touch soon.");

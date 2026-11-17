@@ -123,17 +123,18 @@ All motion respects the visitor's reduced-motion setting.
 ## Contact email
 
 The inquiry form emails each submission to Jessie through
-[FormSubmit](https://formsubmit.co), a free form-to-email service with no
-account or API key. The destination is the form's `data-contact-email`
+[Web3Forms](https://web3forms.com), a free form-to-email service. Create an
+access key at web3forms.com using the inbox that should receive inquiries
+(the key is emailed there), then put it in the form's `data-access-key`
 attribute in `contact/index.html`:
 
 ```html
-<form id="inquiry-form" data-contact-email="jessie@jessiesunday.com">
+<form id="inquiry-form" data-access-key="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
 ```
 
-The first submission to a new address makes FormSubmit send that inbox an
-activation email; nothing is delivered until the link in it is clicked. If
-sending fails, the visitor is shown their inquiry to copy or download instead.
+The access key is designed to be public, so it is safe in the page source.
+Until a key is set, or if sending fails, the visitor is shown their inquiry to
+copy or download instead.
 
 Links from the Partner page arrive as `contact/index.html?type=fractional` or
 `contact/index.html?type=project`, and that choice is carried into the introduction.
