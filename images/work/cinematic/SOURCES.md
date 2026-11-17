@@ -8,10 +8,8 @@ Treatment: warm amber light, soft cream highlights, open warm shadows, restraine
 
 ## headprint-studio.webp
 
-Source: `/images/work/headprint-studio.webp`.
-Output: `/images/work/cinematic/headprint-studio.webp`.
-
-Use case: lighting-weather / editorial photo color grade. Input image 1 is the EDIT TARGET, an existing selected-work photograph. Input image 2 is a color, lighting and cinematography REFERENCE ONLY. Professionally color-grade and gently relight image 1 to feel as cozy, natural and polished as image 2: warm honey and amber light, soft creamy highlights, rich but open warm shadows, subdued olive foliage, warm natural skin tones, tactile materials, smooth filmic highlight rolloff, restrained saturation and very subtle fine film grain. Carefully enhance exposure, clarity and tonal separation without a crunchy HDR effect. Keep the photograph believable and appropriate to its existing indoor/outdoor setting. Preserve the exact composition, crop, perspective, all people and their facial likenesses, expressions, poses, clothing, architecture, props, objects and visible branding/signage. Do not add, remove, replace or move people or objects, do not add scenery from image 2, do not turn this into the retreat scene. Do not add typography, borders or watermarks. The result must remain a real photograph of the same subject, not an illustration or new composition. Match image 1's aspect ratio. This is an eleven-person salon team portrait with three seated in front. Keep all eleven people and their exact arrangement. Lift the dim faces gently with warm window-light quality. Retain the black garments and existing olive backdrop while adding warmth and polish to the wood floor and skin. Do not add sunset beams or outdoor scenery.
+Source: photo supplied by the site owner (2026-11-17), used as-is without a color grade. Only 640px wide, so there are no 960w and larger variants.
+Output: `/images/work/cinematic/headprint-studio.webp` and its width variants.
 
 ## the-barb-shop.webp
 

@@ -6,12 +6,7 @@ at up to 1600 pixels wide. All third-party artwork remains its owners' property.
 
 | Asset | Source |
 | --- | --- |
-| `headprint-studio.webp` | [Team photo on Headprint Studio](https://images.squarespace-cdn.com/content/v1/680fae22be96a90a7e7f23ce/5ab7cefb-e001-4ae8-a911-f8c7c79e9e86/WAM03722-Edit.jpg) |
-| `the-barb-shop.webp` | [Salon photo on the San Francisco page](https://thebarbshop.com/cdn/shop/files/3_62e8a0d6-61da-43bd-a60d-52b4c07b7fc2.png?v=1777669930&width=1500) |
-| `livingsocial-adventures.webp` | Nightclub crowd photo, supplied by the site owner (2026-11-17). |
-| `jack-morton.webp` | Splunk conference keynote audience photo, supplied by the site owner (2026-11-17). |
-| `jewish-federation-la.webp` | [Community collage on Jewish Federation LA](https://www.jewishla.org/wp-content/uploads/2025/04/Group-30964.png) |
-| `the-release-series.webp` | Generated with the built-in imagegen tool as a temporary concept, at the user's request. No verified website or social profiles supplied. |
+| `headprint-studio.webp` | Prism Gala curtain call at the Castro Theatre, supplied by the site owner (2026-11-17). |
 
 ## The Release Series generation prompt
 
