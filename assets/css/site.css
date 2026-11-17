@@ -935,7 +935,7 @@ figure {
   color: var(--accent-text);
 }
 .work {
-  padding-top: 88px;
+  padding-top: 56px;
 }
 .filters {
   display: flex;
@@ -3251,8 +3251,8 @@ body,
   overflow: hidden;
   display: flex;
   align-items: center;
-  min-height: 620px;
-  padding: 90px clamp(25px, 5.5vw, 100px);
+  min-height: 520px;
+  padding: 70px clamp(25px, 5.5vw, 100px);
   background: var(--print-paper);
   color: var(--print-ink);
 }
@@ -3287,7 +3287,7 @@ body,
   right: 3%;
   width: 38%;
   max-width: 560px;
-  height: 600px;
+  height: 520px;
   color: var(--print-ink);
   pointer-events: none;
   z-index: -1;
