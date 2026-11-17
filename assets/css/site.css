@@ -735,6 +735,25 @@ figure {
   margin: 0;
   max-width: 250px;
 }
+.section-head--statement > div {
+  flex: 1;
+}
+.section-head--statement h2 {
+  font-size: clamp(32px, 3.2vw, 48px);
+  max-width: 30ch;
+}
+.based-line {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+.based-line p {
+  margin: 0 auto;
+  max-width: 30ch;
+  font: clamp(30px, 3.2vw, 46px) / 1.15 var(--display);
+  letter-spacing: var(--title-tracking);
+  color: var(--accent-text);
+}
 .service-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1213,6 +1232,17 @@ figure {
 .timeline-link:hover .timeline-logo,
 .timeline-link:focus-visible .timeline-logo {
   background-color: var(--accent);
+}
+.timeline-wordmark {
+  display: block;
+  font: 600 15px/1.15 var(--sans);
+  letter-spacing: 0.02em;
+  color: var(--text);
+  transition: color 0.2s ease;
+}
+.timeline-link:hover .timeline-wordmark,
+.timeline-link:focus-visible .timeline-wordmark {
+  color: var(--accent);
 }
 .audience {
   background: var(--forest);
@@ -1963,6 +1993,44 @@ figure {
   color: var(--accent-text);
   text-wrap: pretty;
 }
+.case-chapter ul {
+  max-width: 620px;
+  margin: 0 0 1.3em;
+  padding-left: 1.2em;
+  font-size: 19px;
+}
+.case-chapter li + li {
+  margin-top: 12px;
+}
+.case-chapter li::marker {
+  color: var(--accent);
+}
+.case-quote {
+  max-width: 660px;
+  margin: 36px 0 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.case-quote p {
+  max-width: none;
+  margin-bottom: 18px;
+  font: italic 400 clamp(22px, 2vw, 27px)/1.45 var(--serif);
+  color: var(--accent-text);
+  text-wrap: pretty;
+}
+.case-quote footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  align-items: baseline;
+  font-size: 15px;
+  color: var(--muted);
+}
+.case-quote cite {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--text-soft);
+}
 .case-print {
   max-width: 820px;
   margin: 48px 0 8px;
@@ -2406,6 +2474,12 @@ body,
   .case-chapter .case-pull {
     padding-left: 18px;
     font-size: 24px;
+  }
+  .case-chapter ul {
+    font-size: 18px;
+  }
+  .case-quote p {
+    font-size: 21px;
   }
   .case-print {
     margin: 36px 0 4px;

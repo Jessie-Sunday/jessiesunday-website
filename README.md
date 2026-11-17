@@ -47,7 +47,7 @@ and the publish directory is the repository root.
 | Path                          | Contents                                              |
 | ----------------------------- | ----------------------------------------------------- |
 | `index.html`                  | Home                                                  |
-| `about/`, `approach/`         | About and Approach                                    |
+| `about/`                      | About                                                 |
 | `work/index.html`             | Selected work, with category filters                  |
 | `work/<project>/index.html`   | The six project pages                                 |
 | `partner/`, `contact/`        | Partner with me, and the inquiry form                 |
@@ -167,7 +167,7 @@ changes.
 
 ## Content notes
 
-The hero backgrounds and the drag-show image are generated concepts, not
+The hero backgrounds and the candlelit gathering image are generated concepts, not
 photographs of Jessie, her clients, actual venues, or documented events. The
 About portrait is an AI-edited photograph of Jessie. Image provenance is
 recorded on the Credits page, and in the `SOURCES.md` files beside the logos
