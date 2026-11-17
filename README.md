@@ -49,7 +49,6 @@ and the publish directory is the repository root.
 | `index.html`                  | Home                                                  |
 | `about/`                      | About                                                 |
 | `work/index.html`             | Selected work, with category filters                  |
-| `work/<project>/index.html`   | The six project pages                                 |
 | `partner/`, `contact/`        | Partner with me, and the inquiry form                 |
 | `brand/`, `privacy/`, `credits/` | Reference pages                                    |
 | `404.html`                    | Page-not-found page                                   |
@@ -66,13 +65,13 @@ and the publish directory is the repository root.
 
 **Copy.** Open the page's `index.html` and edit the text.
 
-**Header and footer.** They are repeated in every page (16 files). Change them
+**Header and footer.** They are repeated in every page (9 files). Change them
 with a project-wide find and replace so the pages stay in step. The current
 page's link in the header carries `aria-current="page"`.
 
-**Projects.** Each project has its own page under `work/`, a card in
-`work/index.html`, and appears in its neighbours' "Previous / Next" links at
-the bottom of their pages.
+**Projects.** Each project is a card in `work/index.html`, with no page of its
+own. Keep the card copy and the matching `ItemList` entry in the page's JSON-LD
+in step.
 
 **Styles.** `assets/css/site.css` starts with the fonts, then the shared styles,
 then one labelled section per page-specific component. Classes in those
@@ -148,14 +147,13 @@ re-export one if its page's hero or headline changes.
 
 **Structured data.** Each page's `<head>` ends with a JSON-LD block describing
 Jessie (`Person`), the practice (`ProfessionalService`, with its services and
-the two ways to work together), the page itself, and its breadcrumb. Case
-studies add a `CreativeWork` naming the client and its links; Selected work
-lists all six; Partner carries the FAQ. When you change a page's title,
+the two ways to work together), the page itself, and its breadcrumb. Selected work
+lists all six projects; Partner carries the FAQ. When you change a page's title,
 description, or the FAQ on the Partner page, update the matching text in its
 JSON-LD so the two agree. Check changes with Google's Rich Results Test.
 
 **Answer engines.** `llms.txt` is a plain-language summary of the site with
-links, for AI assistants and answer engines. Keep its facts and case study
+links, for AI assistants and answer engines. Keep its facts and project
 lines in step with the pages. `robots.txt` names the main AI crawlers to make
 clear they are welcome; remove any you would rather keep out.
 

@@ -1010,13 +1010,6 @@ figure {
   font-size: 25px;
   letter-spacing: var(--title-tracking);
 }
-.card-heading > span {
-  font-size: 20px;
-  transition: transform 0.2s;
-}
-.work-card:hover .card-heading > span {
-  transform: translate(3px, -3px);
-}
 .work-card-main > p {
   font-size: 18px;
   margin-bottom: 8px;
