@@ -122,15 +122,18 @@ All motion respects the visitor's reduced-motion setting.
 
 ## Contact email
 
-The inquiry form never sends anything from the website. As shipped, it prepares
-a short introduction that the visitor can copy or download.
-
-To have it open a prefilled draft in the visitor's email app instead, add
-Jessie's approved address to the form in `contact/index.html`:
+The inquiry form emails each submission to Jessie through
+[FormSubmit](https://formsubmit.co), a free form-to-email service with no
+account or API key. The destination is the form's `data-contact-email`
+attribute in `contact/index.html`:
 
 ```html
-<form id="inquiry-form" data-contact-email="hello@example.com">
+<form id="inquiry-form" data-contact-email="jessie@jessiesunday.com">
 ```
+
+The first submission to a new address makes FormSubmit send that inbox an
+activation email; nothing is delivered until the link in it is clicked. If
+sending fails, the visitor is shown their inquiry to copy or download instead.
 
 Links from the Partner page arrive as `contact/index.html?type=fractional` or
 `contact/index.html?type=project`, and that choice is carried into the introduction.
